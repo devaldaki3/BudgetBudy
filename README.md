@@ -1,123 +1,158 @@
-## BudgetBudy
+<div align="center">
 
-Detects Spendings, Tracks Dues, Simplifies Money Management
+# BUDGETBUDY
+
+_Tracks Spendings, Manages Dues, Simplifies Money Management_
+
+![last commit](https://img.shields.io/github/last-commit/devaldaki3/BudgetBudy)
+
+![dart](https://img.shields.io/badge/dart-100%25-blue)
+
+![languages](https://img.shields.io/badge/languages-1-blue)
+
+_Built with the tools and technologies:_
+
+![Flutter](https://img.shields.io/badge/Flutter-02569B?logo=flutter&logoColor=white)
+
+![Dart](https://img.shields.io/badge/Dart-0175C2?logo=dart&logoColor=white)
+
+![Provider](https://img.shields.io/badge/Provider-FF6B6B?logo=flutter)
+
+![SQLite](https://img.shields.io/badge/SQLite-003B57?logo=sqlite&logoColor=white)
+
+![Material Design](https://img.shields.io/badge/Material%20Design-757575?logo=material-design)
+
+</div>
 
 ---
 
-### Overview
+<!-- App screenshot for quick visual reference -->
 
-**BudgetBudy** is a personal finance and ledger management app built with **Flutter**.  
-It combines:
+![App Screenshot](assets/images/app_icon.png)
+
+<hr>
+
+## Table of Contents
+
+- [Overview](#overview)
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Project Structure](#project-structure)
+- [Getting Started](#getting-started)
+  - [Clone the Repository](#1-clone-the-repository)
+  - [Install Requirements](#2-install-requirements)
+  - [Run the Application](#3-run-the-application)
+- [Model & Data Layer](#model--data-layer)
+- [Analytics](#analytics)
+- [Export Options](#export-options)
+- [License](#license)
+- [Author](#author)
+- [Screenshots](#screenshots)
+
+## Overview
+
+**BudgetBudy** is a personal finance and ledger management app built with **Flutter**. It combines:
 
 - a **daily spending tracker** for your own expenses, and
-- a **Khatabook‑style party ledger** for tracking who you will give / who you will get money from.
+- a **Khatabook-style party ledger** for tracking who you will give / who you will get money from.
 
-The goal is to make it easy to log transactions quickly, see totals and trends over time, and manage balances with friends, family, or customers — all offline using local storage.
+It's designed to streamline **personal finance management**, reduce manual calculation errors, and provide real-time insights using local SQLite storage — all **offline**, no internet required.
 
----
+## Features
 
-### Features
+- 📊 **Daily/Weekly/Monthly/Yearly Views**
 
-#### Spending Tracker
+  Track your spending across multiple time ranges with tabbed navigation.
 
-- Add expenses with **title, amount, date, and category**.
-- View spending in multiple time ranges:
-  - Daily
-  - Weekly
-  - Monthly
-  - Yearly
-- See recent transactions and total spend.
-- Data stored locally using **SQLite**, no server required.
+- 💰 **Category-Based Transactions**
 
-#### Khatabook‑Style Party Ledger
+  Add expenses with title, amount, date, and category for better organization.
 
-- Create **parties** (contacts) with name and phone number.
-- Add **“gave”** or **“got”** transactions for each party.
-- Automatic calculation of:
-  - **You will give** (total amount you owe others)
-  - **You will get** (total amount others owe you)
-- Party list screen with:
-  - Initials avatar and color‑coded tiles
-  - Per‑party balance with clear red/green amount
+- 👥 **Khatabook-Style Party Ledger**
 
-#### Visual Insights & UI
+  Create parties (contacts) and track "gave" or "got" transactions per party.
 
-- Clean, modern **Material design** with custom fonts (`OpenSans`, `Quicksand`).
-- Basic charts and statistics using `fl_chart` (for spending analytics).
-- Drawer with total spending summary.
+- 📈 **Automatic Balance Calculation**
 
----
+  See **You will give** and **You will get** totals automatically calculated.
 
-### Tech Stack
+- 🎨 **Modern UI Design**
 
-- **Framework / UI**
+  Clean Material Design with custom fonts (`OpenSans`, `Quicksand`) and color-coded balances.
 
-  - Flutter
-  - Material Design
+- 📊 **Visual Analytics**
 
-- **State Management**
+  Charts and graphs using `fl_chart` for spending patterns and trends.
 
-  - `provider`
+- 💾 **Offline Storage**
 
-- **Local Storage / Database**
+  All data stored locally using SQLite — no backend or internet connection needed.
 
-  - `sqflite`
-  - Separate databases for:
-    - personal spendings (`spendings.db`)
-    - party ledger (`khatabook.db`)
+- 🔄 **Real-Time Updates**
 
-- **Utilities & Libraries**
-  - `intl` – date formatting
-  - `fl_chart` – charts
-  - `random_color` – color utilities
-  - `url_launcher` – open external links (if needed)
+  Provider state management ensures UI updates instantly when data changes.
 
----
+## Tech Stack
 
-### Project Structure
+- **Framework/UI**: Flutter, Material Design
+- **Language**: Dart
+- **State Management**: Provider
+- **Local Database**: SQLite (sqflite)
+  - Separate databases for spendings (`spendings.db`) and party ledger (`khatabook.db`)
+- **Utilities & Libraries**:
+  - `intl` – Date formatting and localization
+  - `fl_chart` – Beautiful charts and graphs
+  - `random_color` – Color utilities for UI
+  - `url_launcher` – Open external links
 
-```text
+## Project Structure
+
+```
 BudgetBudy/
 ├── lib/
-│   ├── main.dart               # Entry point, theme, routes, Provider setup
+│   ├── main.dart                    # Entry point, theme, routes, Provider setup
 │   ├── models/
-│   │   ├── transaction.dart    # Personal spending transaction + Transactions provider
-│   │   ├── transaction_model.dart  # Party ledger transaction model (gave/got)
-│   │   └── party.dart          # Party (contact) model
+│   │   ├── transaction.dart          # Personal spending transaction + Transactions provider
+│   │   ├── transaction_model.dart   # Party ledger transaction model (gave/got)
+│   │   ├── party.dart               # Party (contact) model
+│   │   └── pie_data.dart            # Chart data models
 │   ├── database/
-│   │   └── db_helper.dart      # SQLite helper for Khatabook ledger (khatabook.db)
+│   │   └── db_helper.dart           # SQLite helper for Khatabook ledger (khatabook.db)
 │   ├── DBhelp/
-│   │   └── dbhelper.dart       # SQLite helper for personal spendings (spendings.db)
+│   │   └── dbhelper.dart            # SQLite helper for personal spendings (spendings.db)
 │   ├── screens/
-│   │   ├── home_screen.dart           # Tabbed view (Daily/Weekly/Monthly/Yearly)
-│   │   ├── new_transaction.dart       # Add new personal spending
-│   │   ├── party_list_screen.dart     # Parties list + summary (You will give/get)
-│   │   ├── party_profile_screen.dart  # Per‑party details and transactions
-│   │   └── statistics/…               # Statistics / analytics views
-│   └── widgets/
-│       ├── app_drawer.dart            # Drawer with totals, navigation
-│       ├── transaction_tile.dart      # UI for individual transactions
-│       ├── no_trancaction.dart        # Empty state widget
-│       └── pie_chart_widgets/…        # Chart widgets using fl_chart
+│   │   ├── home_screen.dart         # Tabbed view (Daily/Weekly/Monthly/Yearly)
+│   │   ├── new_transaction.dart     # Add new personal spending
+│   │   ├── party_list_screen.dart   # Parties list + summary (You will give/get)
+│   │   ├── party_profile_screen.dart # Per-party details and transactions
+│   │   ├── add_party_screen.dart    # Add/edit party screen
+│   │   ├── transaction_detail_screen.dart # Transaction details view
+│   │   └── statistics/              # Statistics/analytics views
+│   ├── widgets/
+│   │   ├── app_drawer.dart          # Drawer with totals, navigation
+│   │   ├── transaction_tile.dart   # UI for individual transactions
+│   │   ├── transaction_list_items.dart # Transaction list components
+│   │   ├── no_trancaction.dart      # Empty state widget
+│   │   └── pie_chart_widgets/       # Chart widgets using fl_chart
+│   └── constants/
+│       └── categories.dart          # Transaction categories
 ├── assets/
-│   ├── fonts/                         # OpenSans, Quicksand
-│   └── images/                        # App icon, illustrations
-├── pubspec.yaml                       # Dependencies and assets configuration
-└── README.md                          # Project documentation (this file)
+│   ├── fonts/                       # OpenSans, Quicksand font files
+│   └── images/                      # App icon, illustrations
+├── pubspec.yaml                     # Dependencies and assets configuration
+└── README.md                        # Project documentation (this file)
 ```
 
----
+## Getting Started
 
-### Getting Started
-
-#### 1. Clone the Repository
+### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/<your-username>/BudgetBudy.git
+git clone https://github.com/devaldaki3/BudgetBudy.git
 cd BudgetBudy
 ```
 
-#### 2. Install Dependencies
+### 2. Install Requirements
 
 Make sure Flutter is installed and configured:
 
@@ -131,82 +166,79 @@ Then install project dependencies:
 flutter pub get
 ```
 
-#### 3. Run the Application
+### 3. Run the Application
 
 ```bash
 flutter run
 ```
 
 Select your device/emulator when prompted.  
-The app will start with the **Home** screen (spending tabs). You can navigate to the Khatabook ledger from the drawer or dedicated navigation option (depending on your UI).
+The app will start with the **Home** screen (spending tabs). You can navigate to the Khatabook ledger from the drawer or dedicated navigation option.
 
----
+## Model & Data Layer
 
-### Model & Data Layer (High Level)
+### Personal Spending (`Transaction` / `Transactions`)
 
-#### Personal Spending (`Transaction` / `Transactions`)
-
-- `Transaction` model:
+- **Transaction Model**:
   - `id`, `title`, `amount`, `date`, `category`
-- `Transactions` provider:
-  - Stores a list of transactions in memory.
-  - Persists data via `DBhelp/dbhelper.dart` into `spendings.db`.
-  - Provides:
-    - `addTransactions`, `deleteTransaction`, `fetchTransactions`
-    - Filters: daily, weekly, monthly, yearly, recent
-    - Aggregations for charts and totals
+- **Transactions Provider**:
+  - Stores list of transactions in memory
+  - Persists data via `DBhelp/dbhelper.dart` into `spendings.db`
+  - Provides CRUD operations: `addTransactions`, `deleteTransaction`, `fetchTransactions`
+  - Filters: daily, weekly, monthly, yearly, recent (last 7 days)
+  - Aggregations for charts and totals
 
-#### Party Ledger (`Party`, `TransactionModel`)
+### Party Ledger (`Party`, `TransactionModel`)
 
-- `Party`:
+- **Party Model**:
   - `id`, `name`, `phone`
-- `TransactionModel`:
+- **TransactionModel**:
   - `id?`, `partyId`, `amount`, `type (gave/got)`, `date`, `note`
-- `database/db_helper.dart`:
+- **Database Helper** (`database/db_helper.dart`):
   - Creates and manages `khatabook.db`
   - Tables:
-    - `parties`
-    - `transactions` (linked to parties)
+    - `parties` (id, name, phone)
+    - `transactions` (linked to parties via foreign key)
   - Provides functions to:
     - Insert/update/delete parties and transactions
-    - Compute per‑party balance and totals
+    - Compute per-party balance and totals
+    - Get transactions by party ID
 
----
+## Analytics
 
-### Analytics & Visualization
+- **Time-Based Analytics**: Daily, weekly, monthly, yearly spending breakdowns
+- **Chart Visualizations**: Using `fl_chart` for pie charts and bar graphs
+- **Balance Summary**:
+  - Total spending across all transactions
+  - "You will give" vs "You will get" totals for party ledger
+- **Recent Activity**: Last 7 days transaction view
 
-- Time‑based analytics for personal spendings (daily/weekly/monthly/yearly).
-- Dataset preparation helpers in `Transactions` to compute:
-  - Last 6 months / first 6 months totals
-  - Recent spendings for charting
-- Graphs and charts rendered using `fl_chart` in custom widgets.
+## Export Options
 
----
+- ✅ **Future Enhancement**: Export personal transactions or party ledger data as CSV
+- ✅ **Future Enhancement**: Generate PDF summary reports for a month or a party
+- ✅ **Future Enhancement**: Backup/restore database functionality
 
-### Export / Extension Ideas
+## License
 
-The current project focuses on core tracking and visualization.  
-Some natural extensions you can add on top:
+This project is licensed under the MIT License.
 
-- Export personal transactions or party ledger data as **CSV**.
-- Add **PDF summary reports** for a month or a party.
-- Add authentication and cloud sync using Firebase.
-- Push notifications for due dates or payment reminders.
+You can use, modify, and distribute it freely with proper attribution.
 
----
+## Author
 
-### License
+Developed with ❤️ by [@devaldaki3](https://github.com/devaldaki3)
 
-This project is currently provided **as‑is** for personal use and learning.  
-You can add a formal license (for example, MIT) if you plan to open‑source it publicly.
+Feel free to contribute, raise issues, or suggest improvements.
 
----
+## Screenshots
 
-### Author
+**Home Screen - Daily Spending**
 
-Developed by **@devaldaki3**.  
-Feel free to:
+![Home Screen](assets/images/app_icon.png)
 
-- open issues for bugs or feature requests
-- submit pull requests with improvements
-- fork the project and adapt it to your own finance or ledger workflow
+**Party List - Khatabook Ledger**
+
+![Party List](assets/images/app_icon.png)
+
+[⬆️ Back to Top](#table-of-contents)
