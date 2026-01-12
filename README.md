@@ -17,9 +17,7 @@ _Built with the tools and technologies:_
 <!-- App screenshot for quick visual reference -->
 
 <div align="center">
-
-![App Screenshot](assets/images/app_icon.png)
-
+  <img src="assets/images/app_icon.png" alt="App Screenshot" width="260" />
 </div>
 
 <hr>
@@ -166,18 +164,6 @@ The app will start with the **Home** screen (spending tabs). You can navigate to
   - "You will give" vs "You will get" totals for party ledger
 - **Recent Activity**: Last 7 days transaction view
 
-## Export Options
-
-- ✅ **Future Enhancement**: Export personal transactions or party ledger data as CSV
-- ✅ **Future Enhancement**: Generate PDF summary reports for a month or a party
-- ✅ **Future Enhancement**: Backup/restore database functionality
-
-## License
-
-This project is licensed under the MIT License.
-
-You can use, modify, and distribute it freely with proper attribution.
-
 ## Author
 
 Developed with ❤️ by [@devaldaki3](https://github.com/devaldaki3)
@@ -188,13 +174,24 @@ Feel free to contribute, raise issues, or suggest improvements.
 
 <div align="center">
 
+<table>
+<tr>
+<td width="50%">
+
 **Home Screen - Daily Spending**
 
-![Home Screen](assets/images/Home_Screen.png)
+<img src="assets/images/Home_Screen.png" alt="Home Screen" width="100%" />
+
+</td>
+<td width="50%">
 
 **Party List - Khatabook Ledger**
 
-![Party List](assets/images/Party_List.png)
+<img src="assets/images/Party_List.png" alt="Party List" width="100%" />
+
+</td>
+</tr>
+</table>
 
 </div>
 
