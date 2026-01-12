@@ -4,23 +4,11 @@
 
 _Detects Spendings, Ensures Quality, Accelerates Money Management_
 
-![last commit](https://img.shields.io/github/last-commit/devaldaki3/BudgetBudy)
-
-![dart](https://img.shields.io/badge/dart-100%25-blue)
-
-![languages](https://img.shields.io/badge/languages-1-blue)
+![last commit](https://img.shields.io/github/last-commit/devaldaki3/BudgetBudy) ![dart](https://img.shields.io/badge/dart-100%25-blue) ![languages](https://img.shields.io/badge/languages-1-blue)
 
 _Built with the tools and technologies:_
 
-![Flutter](https://img.shields.io/badge/Flutter-02569B?logo=flutter&logoColor=white)
-
-![Dart](https://img.shields.io/badge/Dart-0175C2?logo=dart&logoColor=white)
-
-![Provider](https://img.shields.io/badge/Provider-FF6B6B?logo=flutter)
-
-![SQLite](https://img.shields.io/badge/SQLite-003B57?logo=sqlite&logoColor=white)
-
-![Material Design](https://img.shields.io/badge/Material%20Design-757575?logo=material-design)
+![Flutter](https://img.shields.io/badge/Flutter-02569B?logo=flutter&logoColor=white) ![Dart](https://img.shields.io/badge/Dart-0175C2?logo=dart&logoColor=white) ![Provider](https://img.shields.io/badge/Provider-FF6B6B?logo=flutter) ![SQLite](https://img.shields.io/badge/SQLite-003B57?logo=sqlite&logoColor=white) ![Material Design](https://img.shields.io/badge/Material%20Design-757575?logo=material-design)
 
 </div>
 
@@ -28,7 +16,11 @@ _Built with the tools and technologies:_
 
 <!-- App screenshot for quick visual reference -->
 
+<div align="center">
+
 ![App Screenshot](assets/images/app_icon.png)
+
+</div>
 
 <hr>
 
@@ -37,7 +29,6 @@ _Built with the tools and technologies:_
 - [Overview](#overview)
 - [Features](#features)
 - [Tech Stack](#tech-stack)
-- [Project Structure](#project-structure)
 - [Getting Started](#getting-started)
   - [Clone the Repository](#1-clone-the-repository)
   - [Install Requirements](#2-install-requirements)
@@ -104,44 +95,6 @@ It's designed to streamline **personal finance management**, reduce manual calcu
   - `fl_chart` – Beautiful charts and graphs
   - `random_color` – Color utilities for UI
   - `url_launcher` – Open external links
-
-## Project Structure
-
-```
-BudgetBudy/
-├── lib/
-│   ├── main.dart                    # Entry point, theme, routes, Provider setup
-│   ├── models/
-│   │   ├── transaction.dart          # Personal spending transaction + Transactions provider
-│   │   ├── transaction_model.dart   # Party ledger transaction model (gave/got)
-│   │   ├── party.dart               # Party (contact) model
-│   │   └── pie_data.dart            # Chart data models
-│   ├── database/
-│   │   └── db_helper.dart           # SQLite helper for Khatabook ledger (khatabook.db)
-│   ├── DBhelp/
-│   │   └── dbhelper.dart            # SQLite helper for personal spendings (spendings.db)
-│   ├── screens/
-│   │   ├── home_screen.dart         # Tabbed view (Daily/Weekly/Monthly/Yearly)
-│   │   ├── new_transaction.dart     # Add new personal spending
-│   │   ├── party_list_screen.dart   # Parties list + summary (You will give/get)
-│   │   ├── party_profile_screen.dart # Per-party details and transactions
-│   │   ├── add_party_screen.dart    # Add/edit party screen
-│   │   ├── transaction_detail_screen.dart # Transaction details view
-│   │   └── statistics/              # Statistics/analytics views
-│   ├── widgets/
-│   │   ├── app_drawer.dart          # Drawer with totals, navigation
-│   │   ├── transaction_tile.dart   # UI for individual transactions
-│   │   ├── transaction_list_items.dart # Transaction list components
-│   │   ├── no_trancaction.dart      # Empty state widget
-│   │   └── pie_chart_widgets/       # Chart widgets using fl_chart
-│   └── constants/
-│       └── categories.dart          # Transaction categories
-├── assets/
-│   ├── fonts/                       # OpenSans, Quicksand font files
-│   └── images/                      # App icon, illustrations
-├── pubspec.yaml                     # Dependencies and assets configuration
-└── README.md                        # Project documentation (this file)
-```
 
 ## Getting Started
 
@@ -233,12 +186,16 @@ Feel free to contribute, raise issues, or suggest improvements.
 
 ## Screenshots
 
+<div align="center">
+
 **Home Screen - Daily Spending**
 
-![Home Screen](assets/images/app_icon.png)
+![Home Screen](assets/images/Home_Screen.png)
 
 **Party List - Khatabook Ledger**
 
-![Party List](assets/images/app_icon.png)
+![Party List](assets/images/Party_List.png)
+
+</div>
 
 [⬆️ Back to Top](#table-of-contents)

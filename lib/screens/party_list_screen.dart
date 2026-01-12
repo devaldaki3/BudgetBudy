@@ -209,7 +209,7 @@ class _PartyListScreenState extends State<PartyListScreen> {
                     final p = parties[index - 1];
                     return Padding(
                       padding: const EdgeInsets.symmetric(
-                          horizontal: 12.0, vertical: 6.0),
+                          horizontal: 12.0, vertical: 4.0),
                       child: Material(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(12),
@@ -226,19 +226,20 @@ class _PartyListScreenState extends State<PartyListScreen> {
                             _refresh();
                           },
                           child: Padding(
-                            padding: const EdgeInsets.all(12.0),
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 12.0, vertical: 8.0),
                             child: Row(
                               children: [
                                 // Avatar with initials
                                 CircleAvatar(
-                                  radius: 28,
+                                  radius: 22,
                                   backgroundColor: _getColorFromName(p.name),
                                   child: Text(
                                     _getInitials(p.name),
                                     style: const TextStyle(
                                       color: Colors.white,
                                       fontWeight: FontWeight.bold,
-                                      fontSize: 18,
+                                      fontSize: 16,
                                     ),
                                   ),
                                 ),
@@ -249,7 +250,7 @@ class _PartyListScreenState extends State<PartyListScreen> {
                                     p.name,
                                     style: const TextStyle(
                                       fontWeight: FontWeight.w700,
-                                      fontSize: 16,
+                                      fontSize: 15,
                                       color: Colors.black87,
                                     ),
                                   ),
@@ -268,7 +269,7 @@ class _PartyListScreenState extends State<PartyListScreen> {
                                       '₹ ${bal.abs().toStringAsFixed(0)}',
                                       style: TextStyle(
                                         fontWeight: FontWeight.w800,
-                                        fontSize: 16,
+                                        fontSize: 15,
                                         color: textColor,
                                       ),
                                     );
