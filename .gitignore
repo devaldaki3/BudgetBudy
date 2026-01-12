@@ -139,8 +139,7 @@ coverage/
 
 # Screenshots and documentation
 screenshots/
-*.md
-!README.md
+GITHUB_SETUP.md
 
 # Logs
 *.log

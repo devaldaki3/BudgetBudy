@@ -4,7 +4,9 @@
 
 _Detects Spendings, Ensures Quality, Accelerates Money Management_
 
-![last commit](https://img.shields.io/github/last-commit/devaldaki3/BudgetBudy) ![dart](https://img.shields.io/badge/dart-100%25-blue) ![languages](https://img.shields.io/badge/languages-1-blue)
+[![Download APK](https://img.shields.io/badge/Download-APK%20v1.0.0-brightgreen?style=for-the-badge&logo=android)](https://github.com/devaldaki3/BudgetBudy/releases/latest)
+
+![last commit](https://img.shields.io/github/last-commit/devaldaki3/BudgetBudy) ![version](https://img.shields.io/badge/version-1.0.0-blue) ![dart](https://img.shields.io/badge/dart-100%25-blue) ![license](https://img.shields.io/badge/license-MIT-green)
 
 _Built with the tools and technologies:_
 
@@ -96,14 +98,35 @@ It's designed to streamline **personal finance management**, reduce manual calcu
 
 ## Getting Started
 
-### 1. Clone the Repository
+### 📥 Option 1: Download APK (Recommended for Users)
+
+**For Android users who just want to use the app:**
+
+1. **Download the latest APK** from the [Releases page](https://github.com/devaldaki3/BudgetBudy/releases/latest)
+2. **Enable "Install from Unknown Sources"** in your Android settings:
+   - Go to Settings → Security → Unknown Sources (Enable)
+   - Or Settings → Apps → Special Access → Install Unknown Apps → Select your browser → Allow
+3. **Install the APK** by opening the downloaded file
+4. **Open BudgetBudy** and start tracking your finances! 🎉
+
+**Requirements:**
+- Android 5.0 (Lollipop) or higher
+- ~20 MB storage space
+
+---
+
+### 🛠️ Option 2: Build from Source (For Developers)
+
+**For developers who want to modify or contribute:**
+
+#### 1. Clone the Repository
 
 ```bash
 git clone https://github.com/devaldaki3/BudgetBudy.git
 cd BudgetBudy
 ```
 
-### 2. Install Requirements
+#### 2. Install Requirements
 
 Make sure Flutter is installed and configured:
 
@@ -117,7 +140,7 @@ Then install project dependencies:
 flutter pub get
 ```
 
-### 3. Run the Application
+#### 3. Run the Application
 
 ```bash
 flutter run
@@ -125,6 +148,17 @@ flutter run
 
 Select your device/emulator when prompted.  
 The app will start with the **Home** screen (spending tabs). You can navigate to the Khatabook ledger from the drawer or dedicated navigation option.
+
+#### 4. Build APK (Optional)
+
+To build your own release APK:
+
+```bash
+flutter build apk --release
+```
+
+The APK will be generated at: `build/app/outputs/flutter-apk/app-release.apk`
+
 
 ## Model & Data Layer
 
@@ -164,11 +198,39 @@ The app will start with the **Home** screen (spending tabs). You can navigate to
   - "You will give" vs "You will get" totals for party ledger
 - **Recent Activity**: Last 7 days transaction view
 
-## Author
+## 🤝 Contributing
+
+Contributions are welcome! Please check out our [Contributing Guidelines](CONTRIBUTING.md) for details on how to get started.
+
+### Ways to Contribute:
+- 🐛 Report bugs
+- 💡 Suggest new features
+- 🔧 Submit pull requests
+- 📝 Improve documentation
+- ⭐ Star this repository
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 👨‍💻 Author
 
 Developed with ❤️ by [@devaldaki3](https://github.com/devaldaki3)
 
-Feel free to contribute, raise issues, or suggest improvements.
+## 🙏 Support
+
+If you find this project helpful:
+- ⭐ **Star this repository** to show your support
+- 🐛 **Report issues** on the [Issues page](https://github.com/devaldaki3/BudgetBudy/issues)
+- 💬 **Share feedback** and suggestions
+- 🔄 **Fork and contribute** to make it better
+
+## 📞 Contact
+
+Have questions or suggestions? Feel free to:
+- Open an [issue](https://github.com/devaldaki3/BudgetBudy/issues)
+- Start a [discussion](https://github.com/devaldaki3/BudgetBudy/discussions)
+
 
 ## Screenshots
 
