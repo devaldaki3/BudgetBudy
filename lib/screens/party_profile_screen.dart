@@ -297,90 +297,98 @@ class _PartyProfileScreenState extends State<PartyProfileScreen> {
     await showDialog(
       context: context,
       builder: (ctx) {
-        return AlertDialog(
-          title: Text(type == TransactionType.gave ? 'You Gave' : 'You Got'),
-          content: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              TextField(
-                controller: amountController,
-                keyboardType:
-                    const TextInputType.numberWithOptions(decimal: true),
-                decoration: const InputDecoration(labelText: 'Amount'),
-              ),
-              const SizedBox(height: 8),
-              TextField(
-                controller: noteController,
-                decoration: const InputDecoration(labelText: 'Enter Details'),
-              ),
-              const SizedBox(height: 8),
-              Row(
+        return StatefulBuilder(
+          builder: (context, setDialogState) {
+            return AlertDialog(
+              backgroundColor: Colors.grey[50],
+              title:
+                  Text(type == TransactionType.gave ? 'You Gave' : 'You Got'),
+              content: Column(
+                mainAxisSize: MainAxisSize.min,
                 children: [
-                  const Icon(Icons.event),
-                  const SizedBox(width: 8),
-                  Expanded(
-                    child: Text(
-                      DateFormat('dd MMM, yyyy – hh:mm a').format(date),
-                      overflow: TextOverflow.ellipsis,
-                      softWrap: false,
-                    ),
+                  TextField(
+                    controller: amountController,
+                    keyboardType:
+                        const TextInputType.numberWithOptions(decimal: true),
+                    decoration: const InputDecoration(labelText: 'Amount'),
                   ),
-                  const SizedBox(width: 8),
-                  TextButton(
-                    onPressed: () async {
-                      final picked = await showDatePicker(
-                        context: context,
-                        initialDate: date,
-                        firstDate: DateTime(2000),
-                        lastDate: DateTime.now(),
-                      );
-                      if (picked != null) {
-                        setState(() {
-                          date = DateTime(
-                            picked.year,
-                            picked.month,
-                            picked.day,
-                            date.hour,
-                            date.minute,
+                  const SizedBox(height: 8),
+                  TextField(
+                    controller: noteController,
+                    decoration:
+                        const InputDecoration(labelText: 'Enter Details'),
+                  ),
+                  const SizedBox(height: 8),
+                  Row(
+                    children: [
+                      const Icon(Icons.event),
+                      const SizedBox(width: 8),
+                      Expanded(
+                        child: Text(
+                          DateFormat('dd MMM, yyyy – hh:mm a').format(date),
+                          overflow: TextOverflow.ellipsis,
+                          softWrap: false,
+                        ),
+                      ),
+                      const SizedBox(width: 8),
+                      TextButton(
+                        onPressed: () async {
+                          final picked = await showDatePicker(
+                            context: context,
+                            initialDate: date,
+                            firstDate: DateTime(2000),
+                            lastDate: DateTime.now(),
                           );
-                        });
-                      }
-                    },
-                    child: const Text('Change'),
+                          if (picked != null) {
+                            setDialogState(() {
+                              date = DateTime(
+                                picked.year,
+                                picked.month,
+                                picked.day,
+                                date.hour,
+                                date.minute,
+                              );
+                            });
+                          }
+                        },
+                        child: const Text('Change'),
+                      )
+                    ],
                   )
                 ],
-              )
-            ],
-          ),
-          actions: [
-            TextButton(
-                onPressed: () => Navigator.of(ctx).pop(),
-                child: const Text('Cancel')),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.amber,
-                foregroundColor: Colors.black,
-                shape: const StadiumBorder(),
               ),
-              onPressed: () async {
-                final amount = double.tryParse(amountController.text.trim());
-                if (amount == null || amount <= 0) return;
-                await DBHelper.insertTransaction(
-                  TransactionModel(
-                    partyId: widget.party.id!,
-                    amount: amount,
-                    type: type,
-                    date: date,
-                    note: noteController.text.trim(),
+              actions: [
+                TextButton(
+                    onPressed: () => Navigator.of(ctx).pop(),
+                    child: const Text('Cancel')),
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color(0xFFA80852),
+                    foregroundColor: Colors.white,
+                    shape: const StadiumBorder(),
                   ),
-                );
-                if (!mounted) return;
-                Navigator.of(ctx).pop();
-                await _load();
-              },
-              child: const Text('Save'),
-            )
-          ],
+                  onPressed: () async {
+                    final amount =
+                        double.tryParse(amountController.text.trim());
+                    if (amount == null || amount <= 0) return;
+                    await DBHelper.insertTransaction(
+                      TransactionModel(
+                        partyId: widget.party.id!,
+                        amount: amount,
+                        type: type,
+                        date: date,
+                        note: noteController.text.trim(),
+                      ),
+                    );
+                    if (!mounted) return;
+                    Navigator.of(ctx).pop();
+                    await _load();
+                  },
+                  child: const Text('Save'),
+                )
+              ],
+            );
+          },
         );
       },
     );

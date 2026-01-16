@@ -20,6 +20,7 @@ class _TransactionListItemsState extends State<TransactionListItems> {
   Widget build(BuildContext context) {
     return Card(
         elevation: 5,
+        color: Colors.grey[50],
         child: Row(
           children: <Widget>[
             Container(
@@ -34,7 +35,7 @@ class _TransactionListItemsState extends State<TransactionListItems> {
               decoration: BoxDecoration(
                 border: Border.all(
                   width: 2,
-                  color: Theme.of(context).primaryColor,
+                  color: Colors.grey.shade400,
                 ),
                 borderRadius: const BorderRadius.only(
                   topLeft: Radius.circular(15),
